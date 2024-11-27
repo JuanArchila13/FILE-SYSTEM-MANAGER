@@ -101,6 +101,18 @@ private:
 public:
     Controller() : clusterTam(32) {
         tables["/"]["."] = DirecTable(".", -1, Metadata());
+
+        // Inicializar mainClusters con `diskSize` elementos nulos
+        diskSize = obtainDiskSize();  // Supongo que esta función está definida en otro lugar
+        mainClusters.resize(diskSize);  // Rellenar el vector con nullptr
+
+        // Inicializar swapClusters con 100 elementos nulos
+        swapClusters.resize(100);  // Rellenar el vector con nullptr
+        
+    }
+
+    int obtainDiskSize(){
+        return 500;
     }
 
     File createFile(const string &path, const string &name, const string &data, const string &permissions) {
