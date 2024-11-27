@@ -187,4 +187,40 @@ private:
         }
         return num;
     }
+
+    void init() {
+        cout << saveDirectory("/", "root", "root") << endl;
+        cout << saveFile("/root/", "archivoa.txt", 
+                "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+                "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+                "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+                "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+                "aaaaaaaaaaaaaaaaaaaaaaaaaaa", "root") << endl;
+        cout << saveFile("/root/", "archivob.txt", 
+                "bbbbbbbbbbbbbbbbbbbbbbbbbb"
+                "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+                "bbbbbbbbbbbbbbbbbbbbbbbbbb", "root") << endl;
+        cout << deleteFile("/root/", "archivoa.txt") << endl;
+        cout << saveFile("/root/", "archivoc.txt", 
+                "cccccccccccccccccccccccccccccc"
+                "cccccccccccccccccccccccccccccc"
+                "cccccccccccccccccccccccccccccc"
+                "cccccccccccccccccccccccccccccc", "root") << endl;
+        cout << saveFile("/root/", "archivod.txt", 
+                "ddddddddddddddddddddddddddddddddddddddddd"
+                "dddddddddddddddddddddddddddddddddddddddddd"
+                "dddddddddddddddddddddddddddddddddddddddddd"
+                "dddddddddddddddddddddddddddddddddddddddddd", "root") << endl;
+        cout << copyFile("/root/", "archivob.txt", "/") << endl;
+        cout << moveFile("/root/", "archivob.txt", "/") << endl;
+        cout << viewClusters() << endl;
+        printTables();
+    }
+
+    int main() {
+    FileSystemManager controller;
+    controller.init();
+    return 0;
+}
+
 };
